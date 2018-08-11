@@ -4,7 +4,8 @@ class Product < ApplicationRecord
   validates :price, numericality: true
   validates :price, numericality: { greater_than: 0 }
   before_save :set_title_lowercase, :strip_html_description
-  validate :title_shorter_than_description
+  # validate :title_shorter_than_description
+  before_save :title_shorter_than_description
 
   def set_title_lowercase
     self.title = title.downcase
@@ -12,6 +13,7 @@ class Product < ApplicationRecord
   def title_shorter_than_description
     if title.present? && description.present? && title.length > description.length
       errors.add(:title, "must be shorter than description")
+      throw(:abort)
     end
   end
   def strip_html_description
