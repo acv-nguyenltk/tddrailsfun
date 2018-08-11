@@ -4,8 +4,13 @@ class Product < ApplicationRecord
   validates :price, numericality: true
   validates :price, numericality: { greater_than: 0 }
   before_save :set_title_lowercase, :strip_html_description
-  # validate :title_shorter_than_description
   before_save :title_shorter_than_description
+  # another validate title shoter than description
+  # validate :title_shorter_than_description
+  scope :published, -> { where(published: true) }
+  scope :priced_more_than, ->(price) { where('price > ?',price) }
+
+
 
   def set_title_lowercase
     self.title = title.downcase

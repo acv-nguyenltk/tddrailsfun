@@ -20,4 +20,4 @@ end
     {title: 'Book3', description: '4Description1', price: 15, category_id: cat.id},
     {title: 'Book4', description: '3Description1', price: 17, category_id: cat.id}
   ]
-  books.each{ |book| Product.create! book }
+  books.each{ |p| Product.create! p }
