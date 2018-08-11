@@ -14,7 +14,9 @@ RSpec.describe Product, type: :model do
       expect(@product.title).to eq 'aaa'
     end
     it 'compare_title_length_with_desciption_length' do
-      
+      @product.title = 'title is shorter than description'
+      expect(@product.save)
+      expect(@product.errors.full_messages).to include 'Title must be shorter than description'
     end
 
   end
