@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_11_064445) do
+ActiveRecord::Schema.define(version: 2018_08_11_083952) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2018_08_11_064445) do
     t.decimal "price", precision: 10, scale: 2
     t.boolean "published"
     t.integer "category_id"
+    t.integer "level", limit: 1
+    t.string "country", limit: 3
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
