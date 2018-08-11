@@ -13,6 +13,9 @@ RSpec.describe Product, type: :model do
     it 'lowercase' do
       expect(@product.title).to eq 'aaa'
     end
+    it 'compare_title_length_with_desciption_length' do
+      
+    end
 
   end
 
