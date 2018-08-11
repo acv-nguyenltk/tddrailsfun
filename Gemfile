@@ -52,6 +52,8 @@ group :development, :test do
   gem 'rspec-rails'
   # Add shoulda-matchers
   gem 'shoulda-matchers'
+  # Add enumerize
+  gem 'enumerize'
 end
 
 group :development do
