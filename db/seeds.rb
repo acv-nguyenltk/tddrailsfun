@@ -15,7 +15,7 @@ tables.each do |table|
 end
   cat = Category.create!(title: 'Book1')
   books = [
-    {title: 'Book1', description: 'Description1', price: 12, category_id: cat.id},
+    {title: 'Book1', description: 'Description1', price: 12, category_id: cat.id, level: 1, country: 'VN'},
     {title: 'Book2', description: '2Description1', price: 13, category_id: cat.id},
     {title: 'Book3', description: '4Description1', price: 15, category_id: cat.id},
     {title: 'Book4', description: '3Description1', price: 17, category_id: cat.id}

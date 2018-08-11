@@ -54,6 +54,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   # Add enumerize
   gem 'enumerize'
+  # Add countries
+  gem 'countries'
+
 end
 
 group :development do
