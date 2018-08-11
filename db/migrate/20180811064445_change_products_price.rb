@@ -7,6 +7,7 @@ class ChangeProductsPrice < ActiveRecord::Migration[5.2]
   #   change_column :products, :price, :decimal, scale: 2, precision: 6
   # end
 
+  #Dont know how to rollback migration can use below way for changing modifers
   def change
     reversible do |dir|
       change_table :products do |t|
