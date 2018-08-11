@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_08_11_083952) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 2018_08_11_083952) do
     t.datetime "updated_at", null: false
     t.decimal "price", precision: 10, scale: 2
     t.boolean "published"
-    t.integer "category_id"
-    t.integer "level", limit: 1
+    t.bigint "category_id"
+    t.integer "level", limit: 2
     t.string "country", limit: 3
     t.index ["category_id"], name: "index_products_on_category_id"
   end
