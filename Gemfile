@@ -48,6 +48,8 @@ group :development, :test do
   gem 'pry-stack_explorer'
   # Add rspec-Rails
   gem 'rspec-rails'
+  # Add shoulda-matchers
+  gem 'shoulda-matchers'
 end
 
 group :development do
