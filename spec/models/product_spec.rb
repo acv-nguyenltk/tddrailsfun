@@ -17,6 +17,7 @@ RSpec.describe Product, type: :model do
   end
 
   describe 'Association' do
+    it { should belong_to(:category) }
   end
 
   describe 'Numerically' do
