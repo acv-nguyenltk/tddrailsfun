@@ -2,7 +2,7 @@
   = f.input :title
   = f.input :description
   = f.input :price, min: 0.01
-  / = f.input :country
+  = f.input :country, as: :select, collection: Product.country.options, selected: @product.country
   = f.input :published
   = f.input :level, as: :select, collection: Product.level.options, selected: @product.level
   = f.input :category

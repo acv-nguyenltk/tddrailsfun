@@ -32,7 +32,7 @@ gem 'slim-rails'
 # Add gem formtastic
 gem 'formtastic'
 
-gem 'country_select', require: 'country_select_without_sort_alphabetical'
+gem 'country_select'
 
 
 # Use Redis adapter to run Action Cable in production
