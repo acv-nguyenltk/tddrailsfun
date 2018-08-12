@@ -29,8 +29,13 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
+    if @product.update(product_params)
+      flash[:notice] = "Updated"
     redirect_to products_url
+    else
+      flash[:notice] = "Not yet"
+    render :new
+    end
   end
 
   private def product_params
