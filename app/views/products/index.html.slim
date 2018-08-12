@@ -1,20 +1,12 @@
 = link_to 'Create' , new_product_path
 table
-  tr
-    td  Title
-    td  Price
-    td  Desciption
-    td  Category
-    td  Level
-    td  Country
-  - @products.each do |t|
+  thead
     tr
-      td = link_to t.title, product_path(t)
-      td = t.price
-      td = t.description
-      td = t.category.try(:title)
-      td = t.level
-      td = t.country
-      td = link_to 'Edit', edit_product_path(t)
-      td = link_to 'Delete', product_path(t), method: :delete,
-               data: {confirm: 'Are you sure?'}
+      td  Title
+      td  Price
+      td  Desciption
+      td  Category
+      td  Level
+      td  Country
+  tbody
+    = render partial: 'product', collection: @products

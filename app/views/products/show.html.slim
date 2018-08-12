@@ -1,15 +1,11 @@
 table
-  tr
-    td  Title
-    td  Price
-    td  Desciption
-    td  Category
-    td  Level
-    td  Country
-  tr
-    td = @product.title
-    td = @product.price
-    td = @product.description
-    td = @product.category.try(:title)
-    td = @product.level
-    td = @product.country
+  thead
+    tr
+      td  Title
+      td  Price
+      td  Desciption
+      td  Category
+      td  Level
+      td  Country
+  tbody
+    = render partial: 'product', collection: @products

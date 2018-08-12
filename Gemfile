@@ -33,6 +33,9 @@ gem 'slim-rails'
 gem 'formtastic'
 
 gem 'country_select'
+#Add simple form
+gem 'simple_form'
+
 
 
 # Use Redis adapter to run Action Cable in production
