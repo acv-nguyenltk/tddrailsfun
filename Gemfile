@@ -28,6 +28,8 @@ gem 'pg'
 gem 'awesome_print'
 # Add slim (template code)
 # gem 'slim'
+gem "slim-rails"
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
