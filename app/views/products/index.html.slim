@@ -16,3 +16,5 @@ table
       td = t.level
       td = t.country
       td = link_to 'Edit', edit_product_path(t)
+      td = link_to 'Delete', product_path(t), method: :delete,
+               data: {confirm: 'Are you sure?'}
