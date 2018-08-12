@@ -12,8 +12,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product_params = params.require(:product).permit( :title,
-      :description, :level, :category_id, :price, :country, :published)
       @product = Product.new(product_params)
       if @product.save
         flash[:notice] = "Created"
@@ -22,5 +20,21 @@ class ProductsController < ApplicationController
         flash[:notice] = "Not yet"
       render :new
       end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+    render :new
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to products_url
+  end
+
+  private def product_params
+    params.require(:product).permit( :title,
+    :description, :level, :category_id, :price, :country, :published)
   end
 end
