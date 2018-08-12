@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+  before_action :get_product, only: [:show, :update, :edit, :destroy]
   def index
     @products = Product.all
+    # @products = Product.includes(:category).where(published: true)
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -12,45 +13,31 @@ class ProductsController < ApplicationController
   end
 
   def create
-      @product = Product.new(product_params)
-      if @product.save
-        flash[:notice] = "Created"
-      redirect_to products_url
-      else
-        flash[:notice] = "Not yet"
-      render :new
-      end
+    @product = Product.new(product_params)
+    return redirect_to products_url, notice: 'Created' if @product.save
+      flash[:notice] = 'Not yet'
+    render :new
   end
 
   def edit
-    @product = Product.find(params[:id])
     render :new
   end
 
   def update
-    @product = Product.find(params[:id])
-    if @product.update(product_params)
-      flash[:notice] = "Updated"
-    redirect_to products_url
-    else
+    return redirect_to products_url, notice: 'Updated' if @product.update(product_params)
       flash[:notice] = "Not yet"
     render :new
-    end
   end
-  
+
   def destroy
-    @product = Product.find(params[:id])
-    if @product.destroy
-      flash[:notice] = "Deleted"
-      redirect_to products_url
-    else
-      flash[:notice] = "Not yet"
-      redirect_to products_url
-    end
+    return redirect_to products_url, notice: 'Deleted' if @product.destroy
   end
 
   private def product_params
     params.require(:product).permit( :title,
     :description, :level, :category_id, :price, :country, :published)
+  end
+  private def get_product
+    @product = Product.find(params[:id])
   end
 end
