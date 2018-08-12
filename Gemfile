@@ -28,7 +28,11 @@ gem 'pg'
 gem 'awesome_print'
 # Add slim (template code)
 # gem 'slim'
-gem "slim-rails"
+gem 'slim-rails'
+# Add gem formtastic
+gem 'formtastic'
+
+gem 'country_select', require: 'country_select_without_sort_alphabetical'
 
 
 # Use Redis adapter to run Action Cable in production

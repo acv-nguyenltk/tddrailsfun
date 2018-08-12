@@ -8,10 +8,10 @@ table
     td  Country
   - @products.each do |t|
     tr
-      td = t.title
+      td = link_to t.title, product_path(t)
       td = t.price
       td = t.description
       td = t.category.try(:title)
       td = t.level
       td = t.country
-      td = link_to 'Read More', product_path(t)
+      td = link_to 'Create' , new_product_path
